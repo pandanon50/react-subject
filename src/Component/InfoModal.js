@@ -9,14 +9,19 @@ const InfoModal = ({ visible, setVisible, items }) => {
     setVisible(false);
   };
   const title = Object.keys(items);
-  const contents = Object.values(items);
+  const contents = Object.entries(items);
+
   return (
     <Modal
       title={"INFO"}
       visible={visible}
       onOk={handleOk}
       onCancel={handleCancel}
-    ></Modal>
+    >
+      {contents?.map((v, i) => {
+        return <InfoItem key={`${v[0]}`} title={v[0]} item={v[1]} />;
+      })}
+    </Modal>
   );
 };
 
