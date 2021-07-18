@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import MaterialTable from "material-table";
+import React, { useEffect } from "react";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import TableBody from "@material-ui/core/TableBody";
 import BeerItem from "../Component/BeerItem";
+import Filter from "../Component/Filter";
 
 import { useSelector, useDispatch } from "react-redux";
 import { GET_BEER_REQUEST } from "../Modules/beer";
@@ -26,6 +25,8 @@ const Beerlist = () => {
 
   return (
     <div style={{ maxWidth: "100%" }}>
+      <Filter />
+
       <Table>
         <TableHead>
           <TableRow>
