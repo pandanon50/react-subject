@@ -8,6 +8,7 @@ export const initialState = {
   filterBeerLoading: false,
   filterBeerDone: false,
   filterBeerError: false,
+  filters: null,
 };
 
 export const GET_BEER_REQUEST = "GET_BEER_REQUEST";
@@ -23,10 +24,9 @@ export const getRequestAction = (data) => ({
   data,
 });
 
-export const filterRequestAction = (from, to) => ({
+export const filterRequestAction = (data) => ({
   type: FILTER_BEER_REQUEST,
-  from,
-  to,
+  data,
 });
 
 export const reducer = (state = initialState, action) => {
@@ -38,6 +38,7 @@ export const reducer = (state = initialState, action) => {
         break;
       case GET_BEER_SUCCESS:
         draft.beers = action.data;
+        draft.filters = null;
         draft.getBeerLoading = false;
         draft.getBeerDone = true;
         break;
@@ -45,6 +46,11 @@ export const reducer = (state = initialState, action) => {
         draft.getBeerError = true;
         break;
       case FILTER_BEER_REQUEST:
+        const from = action?.data?.from;
+        const to = action?.data?.to;
+        draft.filters = draft.beers.filter(
+          (item) => item?.abv > from && item?.abv < to
+        );
         draft.filterBeerLoading = true;
         draft.filterBeerDone = false;
         break;

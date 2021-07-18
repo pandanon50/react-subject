@@ -13,16 +13,14 @@ import { GET_BEER_REQUEST } from "../Modules/beer";
 const Beerlist = () => {
   const dispatch = useDispatch();
 
-  const { beers, getBeerLoading, getBeerDone, getBeerError } = useSelector(
-    (state) => state.beer
-  );
+  const { beers, filters, getBeerLoading, getBeerDone, getBeerError } =
+    useSelector((state) => state.beer);
 
   useEffect(() => {
     dispatch({
       type: GET_BEER_REQUEST,
     });
   }, []);
-
   return (
     <div style={{ maxWidth: "100%" }}>
       <Filter />
@@ -37,7 +35,12 @@ const Beerlist = () => {
         </TableHead>
         <TableBody>
           {beers &&
+            filters === null &&
             beers.map((item) => {
+              return <BeerItem key={item?.id} info={item} />;
+            })}
+          {filters &&
+            filters.map((item) => {
               return <BeerItem key={item?.id} info={item} />;
             })}
         </TableBody>
