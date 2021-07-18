@@ -4,26 +4,23 @@ import TableCell from "@material-ui/core/TableCell";
 import { Image } from "antd";
 import InfoModal from "./InfoModal";
 
-const BeerItem = (props) => {
+const BeerItem = ({ info }) => {
   const [visible, setVisible] = useState(false);
-
   return (
     <>
       {visible && (
         <InfoModal
-          items={props}
+          items={info}
           visible={visible}
           setVisible={setVisible}
         ></InfoModal>
       )}
       <TableRow>
-        <TableCell>{props.no}</TableCell>
+        <TableCell>{info.id}</TableCell>
         <TableCell>
-          <Image width={100} src={props.image} alt="profile" />
+          <Image width={100} src={info.image_url} alt="profile" />
         </TableCell>
-        <TableCell onClick={() => setVisible(true)}>{props.name}</TableCell>
-        <TableCell>{props.firstBrewed}</TableCell>
-        <TableCell>{props.contributer}</TableCell>
+        <TableCell onClick={() => setVisible(true)}>{info.name}</TableCell>
       </TableRow>
     </>
   );

@@ -32,23 +32,12 @@ const Beerlist = () => {
             <TableCell>No.</TableCell>
             <TableCell>Image</TableCell>
             <TableCell>Name</TableCell>
-            <TableCell>first_brewed</TableCell>
-            <TableCell>Contributer</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {beers &&
             beers.map((item) => {
-              return (
-                <BeerItem
-                  key={item?.id}
-                  no={item?.id}
-                  image={item?.image_url}
-                  name={item?.name}
-                  firstBrewed={item?.first_brewed}
-                  contributer={item?.contributed_by}
-                />
-              );
+              return <BeerItem key={item?.id} info={item} />;
             })}
         </TableBody>
       </Table>
