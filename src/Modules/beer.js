@@ -16,7 +16,7 @@ export const getRequestAction = (data) => ({
   data,
 });
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   return produce(state, (draft) => {
     switch (action.type) {
       case GET_BEER_REQUEST:

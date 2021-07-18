@@ -12,13 +12,11 @@ const sagaMiddleware = createSagaMiddleware();
 
 export const store = createStore(
   rootReducer,
-  compose(
-    applyMiddleware(sagaMiddleware)
-    // ,
-    // (window as any).__REDUX_DEVTOOLS_EXTENSION__
-    //   ? composeWithDevTools()
-    //   : (f) => f
-  )
+  applyMiddleware(sagaMiddleware)
+  // ,
+  // (window as any).__REDUX_DEVTOOLS_EXTENSION__
+  //   ? composeWithDevTools()
+  //   : (f) => f
 );
 
 sagaMiddleware.run(rootSaga);
