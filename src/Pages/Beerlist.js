@@ -8,20 +8,20 @@ import TableHead from "@material-ui/core/TableHead";
 import TableBody from "@material-ui/core/TableBody";
 import BeerItem from "../Component/BeerItem";
 
-const Beerlist = () => {
-  const [beer, setBeer] = useState([]);
+import { useSelector, useDispatch } from "react-redux";
+import { GET_BEER_REQUEST } from "../Modules/beer";
 
-  const getBeer = async () => {
-    try {
-      const { data } = await axios.get("https://api.punkapi.com/v2/beers");
-      setBeer(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+const Beerlist = () => {
+  const dispatch = useDispatch();
+
+  const { beers, getBeerLoading, getBeerDone, getBeerError } = useSelector(
+    (state) => state.beer
+  );
 
   useEffect(() => {
-    getBeer();
+    dispatch({
+      type: GET_BEER_REQUEST,
+    });
   }, []);
 
   return (
@@ -37,8 +37,8 @@ const Beerlist = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {beer &&
-            beer.map((item) => {
+          {beers &&
+            beers.map((item) => {
               return (
                 <BeerItem
                   key={item?.id}

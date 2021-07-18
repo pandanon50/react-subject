@@ -24,6 +24,7 @@ export const reducer = (state = initialState, action) => {
         draft.getBeerDone = false;
         break;
       case GET_BEER_SUCCESS:
+        draft.beers = action.data;
         draft.getBeerLoading = false;
         draft.getBeerDone = true;
         break;
