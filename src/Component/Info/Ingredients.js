@@ -25,7 +25,7 @@ const Ingredients = ({ hops, malt, yeast }) => {
   `;
 
   return (
-    <div>
+    <>
       <h2>hops</h2>
       <HopsDiv>
         <div className="name">name</div>
@@ -45,17 +45,21 @@ const Ingredients = ({ hops, malt, yeast }) => {
         );
       })}
       <h2>malt</h2>
+      <HopsDiv>
+        <div className="name">name</div>
+        <div className="unitvalue">unit value</div>
+      </HopsDiv>
       {malt.map((v, i) => {
         return (
-          <>
-            <div>name : {v?.name}</div>
+          <HopsDiv>
+            <div className="name">{v?.name}</div>
             <UnitValue unit={v?.amount?.unit} value={v?.amount?.value} />
-          </>
+          </HopsDiv>
         );
       })}
-      <div>yeast</div>
+      <h2>yeast</h2>
       <div>{yeast}</div>
-    </div>
+    </>
   );
 };
 
