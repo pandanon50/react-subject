@@ -5,6 +5,7 @@ import FoodPairing from "./Info/FoodPairing";
 import Ingredients from "./Info/Ingredients";
 import Method from "./Info/Method";
 import colors from "../Common/colors";
+import Volume from "./Info/Volume";
 const Item = styled.div`
   .title {
     color: ${colors.blue};
@@ -32,7 +33,7 @@ const TitleSwitchItem = ({ title, item }) => {
       return <Method method={item} />;
 
     case "volume":
-      return <BoilVolume volume={item} />;
+      return <Volume volume={item} />;
     default:
       return <CommonDiv>{item}</CommonDiv>;
   }
