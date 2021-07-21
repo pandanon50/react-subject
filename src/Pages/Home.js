@@ -1,9 +1,21 @@
 import React from "react";
+import styled from "styled-components";
+import colors from "../Common/colors";
 
-import { Button } from "antd";
+const HomeDiv = styled.div`
+  h1 {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: ${colors.black};
+  }
+`;
 
 const Home = () => {
-  return <div>{/* <Button type="link">하이</Button> */}</div>;
+  return (
+    <HomeDiv>
+      <h1 className="title">Welcome ! Beer my friend !</h1>
+    </HomeDiv>
+  );
 };
 
 export default Home;

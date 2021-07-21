@@ -5,8 +5,8 @@ import { FILTER_BEER_REQUEST, GET_BEER_REQUEST } from "../Modules/beer";
 const Filter = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState({
-    min: 0,
-    max: 0,
+    min: 20,
+    max: 50,
   });
   const onValueChange = (value) => {
     setValue({
