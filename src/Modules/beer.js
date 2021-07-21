@@ -33,12 +33,12 @@ export const reducer = (state = initialState, action) => {
   return produce(state, (draft) => {
     switch (action.type) {
       case GET_BEER_REQUEST:
+        draft.filters = null;
         draft.getBeerLoading = true;
         draft.getBeerDone = false;
         break;
       case GET_BEER_SUCCESS:
         draft.beers = action.data;
-        draft.filters = null;
         draft.getBeerLoading = false;
         draft.getBeerDone = true;
         break;
