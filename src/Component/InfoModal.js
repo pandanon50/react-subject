@@ -13,7 +13,7 @@ const InfoModal = ({ visible, setVisible, items }) => {
 
   return (
     <Modal
-      title={"INFO"}
+      title={"INFORMATION"}
       visible={visible}
       onOk={handleOk}
       onCancel={handleCancel}

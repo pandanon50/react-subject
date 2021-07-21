@@ -1,4 +1,5 @@
 import React from "react";
+import UnitValue from "../styled/UnitValue";
 
 const Ingredients = ({ hops, malt, yeast }) => {
   return (
@@ -9,8 +10,7 @@ const Ingredients = ({ hops, malt, yeast }) => {
           <>
             <div>name : {v?.name}</div>
             <div>--amount--</div>
-            <div>unit : {v?.amount.unit}</div>
-            <div>value : {v?.amount.value}</div>
+            <UnitValue unit={v?.amount?.unit} value={v?.amount?.value} />
             <div>attribute : {v?.attribute}</div>
             <div>add : {v?.add}</div>
           </>
@@ -22,8 +22,7 @@ const Ingredients = ({ hops, malt, yeast }) => {
           <>
             <div>name : {v?.name}</div>
             <div>--amount--</div>
-            <div>unit : {v?.amount.unit}</div>
-            <div>value : {v?.amount.value}</div>
+            <UnitValue unit={v?.amount?.unit} value={v?.amount?.value} />
           </>
         );
       })}

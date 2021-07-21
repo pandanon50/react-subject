@@ -4,10 +4,16 @@ import BoilVolume from "./Info/BoilVolume";
 import FoodPairing from "./Info/FoodPairing";
 import Ingredients from "./Info/Ingredients";
 import Method from "./Info/Method";
+import colors from "../Common/colors";
+const Item = styled.div`
+  .title {
+    color: ${colors.blue};
+  }
+`;
 
-// const Item = styled.div`
-//     colors
-// `
+const CommonDiv = styled.div`
+  font-size: 1rem;
+`;
 
 const TitleSwitchItem = ({ title, item }) => {
   switch (title) {
@@ -28,18 +34,18 @@ const TitleSwitchItem = ({ title, item }) => {
     case "volume":
       return <BoilVolume volume={item} />;
     default:
-      return <div>{item}</div>;
+      return <CommonDiv>{item}</CommonDiv>;
   }
 };
 
 const InfoItem = ({ title, item }) => {
   return (
-    <div>
-      <div>{title}</div>
+    <Item>
+      <h2 className="title">{title}</h2>
       <div>
         <TitleSwitchItem title={title} item={item} />
       </div>
-    </div>
+    </Item>
   );
 };
 

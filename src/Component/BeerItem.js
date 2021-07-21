@@ -9,11 +9,7 @@ const BeerItem = ({ info }) => {
   return (
     <>
       {visible && (
-        <InfoModal
-          items={info}
-          visible={visible}
-          setVisible={setVisible}
-        ></InfoModal>
+        <InfoModal items={info} visible={visible} setVisible={setVisible} />
       )}
       <TableRow>
         <TableCell>{info.id}</TableCell>

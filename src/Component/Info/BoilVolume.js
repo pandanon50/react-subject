@@ -1,16 +1,16 @@
 import React from "react";
+import styled from "styled-components";
+import colors from "../../Common/colors";
+import UnitValue from "../styled/UnitValue";
 
-const BoilVolume = ({ boil_volume = null, volume = null }) => {
-  return boil_volume !== null && volume === null ? (
-    <div>
-      <div>unit: {boil_volume?.unit}</div>
-      <div>value: {boil_volume?.value}</div>
-    </div>
+const BoilVolume = ({ boil_volume = {}, volume = {} }) => {
+  const { unit: boilUnit, value: boilValue } = boil_volume;
+  const { unit: volumeUnit, value: volumeValue } = volume;
+
+  return boilUnit !== null ? (
+    <UnitValue value={boilValue} unit={boilUnit}></UnitValue>
   ) : (
-    <div>
-      <div>unit: {volume?.unit}</div>
-      <div>value: {volume?.value}</div>
-    </div>
+    <UnitValue value={volumeValue} unit={volumeUnit}></UnitValue>
   );
 };
 
